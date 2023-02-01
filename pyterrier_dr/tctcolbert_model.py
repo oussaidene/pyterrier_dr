@@ -151,6 +151,10 @@ class TctColBert(pt.Transformer):
         return pt.apply.by_query(self._transform_R_byquery, add_ranks=True, verbose=self.verbose)(inp)
 
     def _transform_R_byquery(self, query_df):
+        print('QUERIIIIIIIIES')
+        print(query_df['query'])
+        print('DOOOOOOOOOOOOCS')
+        print(query_df[self.text_field])
         query_rep = self._encode_queries([query_df['query'].iloc[0]])
         doc_reps = self._encode_docs(query_df[self.text_field])
         scores = (query_rep * doc_reps).sum(axis=1)
