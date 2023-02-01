@@ -12,6 +12,7 @@ logger = ir_datasets.log.easy()
 
 class TctColBert(pt.Transformer):
     def __init__(self, model_name='castorini/tct_colbert-msmarco', batch_size=32, text_field='text', verbose=False, cuda=None):
+        print('HEYYYYYY')
         self.model_name = model_name
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.cuda = torch.cuda.is_available() if cuda is None else cuda
