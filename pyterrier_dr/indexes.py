@@ -239,9 +239,11 @@ class NumpyIndex(pt.Indexer):
         return res
 
     def index(self, inp):
+        print(inp)
         if isinstance(inp, pd.DataFrame):
             inp = inp.to_dict(orient="records")
         inp = more_itertools.peekable(inp)
+        print(inp)
         path = Path(self.index_path)
         if path.exists():
             if self.overwrite:
